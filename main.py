@@ -43,21 +43,6 @@ user_data["rooms_per_household"] = user_data["total_rooms"] /user_data["househol
 user_data["population_per_household"] = user_data["population"] /user_data["households"]
 user_data["bedrooms_per_room"] = user_data["total_bedrooms"] /user_data["total_rooms"]
 
-num_attributes = []
-cat_attributes = ["ocean_proximity"]
-for i in data:
-    num_attributes.append(i)
-num_attributes.pop()
-
-
-numerical_pipeline = Pipeline([
- ('imputer', SimpleImputer(strategy="median")),
- ('std_scaler', StandardScaler()),
-])
-full_pipeline = ColumnTransformer([
- ("cat", OneHotEncoder(), cat_attributes),
-], remainder='passthrough')
-
 new_full_pipeline = joblib.load("full_pipeline.joblib")
 
 prepared_data = new_full_pipeline.transform(user_data)
@@ -66,5 +51,5 @@ predict = st.button("Predict", type="primary")
 if predict:
     modelPrediction = myModel.predict(prepared_data)
     for i in modelPrediction:
-        st.subheader(f"The predicted house price is {i}")
+        st.subheader(f"The predicted house price is {i:.2f}")
         break
