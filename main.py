@@ -1,11 +1,11 @@
 import streamlit as st
 import pandas as pd
 import joblib
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.compose import ColumnTransformer
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import OneHotEncoder
+
+st.set_page_config(
+        page_title="Predict Prices",
+        page_icon="house.png",
+)
 
 myModel = joblib.load("final_model_random_forest.pkl")
 df = pd.read_csv("housing.csv")
