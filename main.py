@@ -9,6 +9,7 @@ from sklearn.preprocessing import OneHotEncoder
 
 myModel = joblib.load("final_model_random_forest.pkl")
 df = pd.read_csv("housing.csv")
+
 total_rooms_median = df["total_rooms"].median()
 total_bed_rooms_median = df["total_bedrooms"].median()
 st.title("House Price Prediction")
@@ -18,7 +19,7 @@ house_age_slider = st.slider('Enter house age',value=None)
 population = st.number_input("Enter average population of the area", step=1, min_value=0, placeholder="Population...", value=None)
 households = st.number_input("Enter average number of households in the area", step=1, min_value=0, placeholder="Households...", value=None)
 income = st.number_input("Enter your income", step=1, min_value=0, placeholder="Income...", value=None)
-proximity_to_ocean = st.selectbox("Enter proximity to ocean", options=("Less than one hour from ocean", "Inland", "Near ocean", "Near bay", "Island"), index=None, placeholder="Proximity to ocean...")
+proximity_to_ocean = st.selectbox("Enter proximity to ocean", options=("<1H OCEAN", " INLAND", "NEAR OCEAN", "NEAR BAY", "ISLAND"), index=None, placeholder="Proximity to ocean...")
 
 data = {
     "longitude":[longitude],
@@ -48,13 +49,22 @@ for i in data:
     num_attributes.append(i)
 num_attributes.pop()
 
+
 numerical_pipeline = Pipeline([
  ('imputer', SimpleImputer(strategy="median")),
  ('std_scaler', StandardScaler()),
 ])
 full_pipeline = ColumnTransformer([
- ("num", numerical_pipeline, num_attributes),
  ("cat", OneHotEncoder(), cat_attributes),
-])
+], remainder='passthrough')
 
+new_full_pipeline = joblib.load("full_pipeline.joblib")
 
+prepared_data = new_full_pipeline.transform(user_data)
+
+predict = st.button("Predict", type="primary")
+if predict:
+    modelPrediction = myModel.predict(prepared_data)
+    for i in modelPrediction:
+        st.subheader(f"The predicted house price is {i}")
+        break
