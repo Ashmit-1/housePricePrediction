@@ -43,12 +43,11 @@ user_data["rooms_per_household"] = user_data["total_rooms"] /user_data["househol
 user_data["population_per_household"] = user_data["population"] /user_data["households"]
 user_data["bedrooms_per_room"] = user_data["total_bedrooms"] /user_data["total_rooms"]
 
-new_full_pipeline = joblib.load("full_pipeline.joblib")
-
-prepared_data = new_full_pipeline.transform(user_data)
 
 predict = st.button("Predict", type="primary")
 if predict:
+    new_full_pipeline = joblib.load("full_pipeline.joblib")
+    prepared_data = new_full_pipeline.transform(user_data)
     modelPrediction = myModel.predict(prepared_data)
     for i in modelPrediction:
         st.subheader(f"The predicted house price is {i:.2f}")
