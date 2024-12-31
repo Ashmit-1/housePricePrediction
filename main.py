@@ -13,8 +13,7 @@ df = pd.read_csv("housing.csv")
 total_rooms_median = df["total_rooms"].median()
 total_bed_rooms_median = df["total_bedrooms"].median()
 
-st.title("House Price Prediction", anchor=False)
-
+st.columns([1,4,1])[1].title("House Price Prediction", anchor=False)
 
 inputForm = st.container(border=True)
 
