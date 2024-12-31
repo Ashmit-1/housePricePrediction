@@ -25,7 +25,7 @@ with column1:
 
 with column2:
     income = st.number_input("Enter your income", step=1, min_value=0, placeholder="Income...", value=None)
-    proximity_to_ocean = st.selectbox("Enter proximity to ocean", options=("<1H OCEAN", " INLAND", "NEAR OCEAN", "NEAR BAY", "ISLAND"), index=None, placeholder="Proximity to ocean...")
+    proximity_to_ocean = st.selectbox("Enter proximity to ocean", options=("<1H OCEAN", "INLAND", "NEAR OCEAN", "NEAR BAY", "ISLAND"), index=None, placeholder="Proximity to ocean...")
 
 data = {
     "longitude":[longitude],
@@ -41,6 +41,13 @@ data = {
 user_data = pd.DataFrame(data)
 user_data_to_show = user_data.drop(columns=["total_rooms", "total_bedrooms"])
 
+def isFilled(dataframe) -> bool:
+    attributes = list(dataframe)
+    for attribute in attributes:
+        if dataframe[attribute][0] == None:
+            return False
+    return True
+
 st.subheader("The data entered", divider=True)
 st.dataframe(user_data_to_show, hide_index=True)
 
@@ -52,9 +59,13 @@ user_data["bedrooms_per_room"] = user_data["total_bedrooms"] /user_data["total_r
 
 predict = st.button("Predict", type="primary")
 if predict:
-    new_full_pipeline = joblib.load("full_pipeline.joblib")
-    prepared_data = new_full_pipeline.transform(user_data)
-    modelPrediction = myModel.predict(prepared_data)
-    for i in modelPrediction:
-        st.subheader(f"The predicted house price is {i:.2f}")
-        break
+    if isFilled(user_data_to_show):
+        new_full_pipeline = joblib.load("full_pipeline.joblib")
+        prepared_data = new_full_pipeline.transform(user_data)
+        modelPrediction = myModel.predict(prepared_data)
+        for i in modelPrediction:
+            st.subheader(f"The predicted house price is {i:.2f}")
+            break
+    else:
+        st.warning("Enter all the data !")
+       
