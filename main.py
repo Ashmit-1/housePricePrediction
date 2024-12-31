@@ -79,7 +79,7 @@ if predict:
         prepared_data = new_full_pipeline.transform(user_data)
         modelPrediction = myModel.predict(prepared_data)
         for i in modelPrediction:
-            st.subheader(f"The predicted house price is {i:.2f}", anchor=False)
+            st.subheader(f"The predicted house price is ${i:.2f}", anchor=False)
             break
     else:
         st.warning("Oops you missed some information !")
