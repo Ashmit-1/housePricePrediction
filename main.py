@@ -85,5 +85,5 @@ if predict:
             st.subheader(f"The predicted house price is $ {i:.2f}", anchor=False)
             break
     else:
-        st.warning("Oops you missed some information !")
+        st.warning("Oops!! You missed some information !")
        
