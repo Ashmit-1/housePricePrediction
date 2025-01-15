@@ -2,6 +2,8 @@
 
 This is a simple house price prediction model built using random forest algorithm.
 
+You are currently viewing the deployment branch. In this branch we will be working on making the web app more robust by building it with flask and making it more production ready. You can still use the previous deployed version of the app.
+
 In the deployed app the user can input the values and the model will predict the price of a house according to the given information.
 
 As this model is built on data collected from California, it can only detect house prices from California. Don't take the model's prediction for commercial use always verify house prices before buying a house from an authentic source.
