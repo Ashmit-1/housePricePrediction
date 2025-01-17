@@ -10,10 +10,24 @@ st.set_page_config(
 myModel = joblib.load("final_model_random_forest.pkl")
 df = pd.read_csv("housing.csv")
 
+st.columns([1,4,1])[1].title("House Price Prediction", anchor=False)
+
+col1_1, col2_1, col3_1 = st.columns([2.5,1,2.5], border=False)
+with col2_1:
+    reset = st.button("Reset", type="primary")
+if reset:
+    latitude=0
+    longitude=None
+    house_age_slider=None
+    total_rooms_median=None
+    total_bed_rooms_median=None
+    population=None
+    households=None
+    income=None
+    proximity_to_ocean=None
 total_rooms_median = df["total_rooms"].median()
 total_bed_rooms_median = df["total_bedrooms"].median()
 
-st.columns([1,4,1])[1].title("House Price Prediction", anchor=False)
 
 inputForm = st.container(border=True)
 
