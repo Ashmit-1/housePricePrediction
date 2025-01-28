@@ -8,28 +8,58 @@
     <style>
         body {
             background-color: black;
+            color: aliceblue;
+
         }
 
-        mother {
+        .heading {
+            width: 100%;
+            justify-content: center;
+            display: flex;
+        }
+
+        .heading h1 {
+            align-self: center;
+            font-size: 40px;
+        }
+
+        .mother {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            width: 100vw;
+            width: auto;
         }
 
-        main_form {
+        .main_form_div {
             height: 50vh;
             width: 50vw;
             border: solid white 2px;
             border-radius: 10px;
+            transform: translateY(-100px);
         }
     </style>
 </head>
 
 <body>
+    <div class="heading">
+        <h1>
+            House Price Prediction
+        </h1>
+    </div>
     <div class="mother">
-        <div class="main_form">
+        <div class="main_form_div">
+            <form action="" method="post">
+
+                <label for="longitude">Enter your longitude</label>
+                <br>
+                <input type="range" name="longitude" id="">
+
+                <label for="longitude">Enter your longitude</label>
+                <br>
+                <input type="range" name="longitude" id="">
+
+            </form>
 
         </div>
     </div>
