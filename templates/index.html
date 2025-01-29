@@ -63,7 +63,7 @@
         .range_inputs_inner {
             position: relative;
 
-            width: 50%;
+            width: 100%;
             text-align: left;
         }
 
@@ -71,6 +71,28 @@
             position: relative;
             top: 10px;
             width: 100%;
+        }
+
+        .number_inputs input {
+            padding: 2px;
+        }
+
+        .submit_but input {
+            width: 200px;
+            height: 40px;
+            background-color: rgb(7, 120, 220);
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            transition: 0.5s ease;
+            color: aliceblue;
+            font-size: 20px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .submit_but input:hover {
+            background-color: blue;
         }
     </style>
 </head>
@@ -100,24 +122,28 @@
                         <label for="age">Enter your house age</label>
 
                         <input type="range" name="age" id="" required>
+
                     </div>
 
                 </div>
-
-
-                <label for="population">Enter average population of the area</label>
-                <br>
-                <input type="number" name="" id="" required>
                 <br>
 
-                <label for="households">Enter average number of households of the area</label>
-                <br>
-                <input type="number" name="" id="" required>
-                <br>
+                <div class="number_inputs">
+                    <label for="population">Enter average population of the area</label>
+                    <br>
+                    <input type="number" name="" id="" required>
+                    <br>
 
-                <label for="income">Enter your income</label>
-                <br>
-                <input type="number" name="" id="" required>
+                    <label for="households">Enter average number of households of the area</label>
+                    <br>
+                    <input type="number" name="" id="" required>
+                    <br>
+
+                    <label for="income">Enter your income</label>
+                    <br>
+                    <input type="number" name="" id="" required>
+                </div>
+
                 <br>
 
                 <label for="proximity">Enter proximity to ocean</label>
@@ -131,9 +157,9 @@
                     <option value="island">ISLAND</option>
                 </select>
 
-                <br>
+                <br><br>
                 <div class="submit_but">
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Predict">
                 </div>
 
             </form>
