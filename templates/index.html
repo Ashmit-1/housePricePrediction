@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Predict Prices</title>
+    <link rel="icon" href="house.png" type="image/x-icon">
     <style>
         body {
             background-color: black;
             color: aliceblue;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
         }
 
@@ -21,6 +23,9 @@
         .heading h1 {
             align-self: center;
             font-size: 40px;
+            padding: 20px;
+            padding-bottom: 40px;
+            margin-bottom: 80px;
         }
 
         .mother {
@@ -34,10 +39,10 @@
         .main_form_div {
             height: fit-content;
             width: 50vw;
-            border: solid white 2px;
+            border: solid rgb(153, 206, 252) 2px;
             border-radius: 10px;
             transform: translateY(-100px);
-            font-size: 20px;
+            font-size: 22px;
         }
 
         .main_form {
@@ -69,12 +74,17 @@
 
         .range_inputs_inner input {
             position: relative;
-            top: 10px;
             width: 100%;
         }
 
         .number_inputs input {
-            padding: 2px;
+            padding: 5px;
+            border-radius: 10px;
+            border: solid rgb(7, 120, 220) 2px;
+        }
+
+        .bumber_inputs input:hover {
+            background-color: rgb(151, 206, 255);
         }
 
         .submit_but input {
@@ -84,15 +94,41 @@
             padding: 10px;
             text-align: center;
             border-radius: 10px;
+            border: solid rgb(7, 120, 220) 2px;
             transition: 0.5s ease;
             color: aliceblue;
             font-size: 20px;
             font-weight: 600;
             cursor: pointer;
+            text-align: center;
         }
 
         .submit_but input:hover {
             background-color: blue;
+        }
+
+        .inner_range {
+            display: flex;
+        }
+
+        .inner_range p {
+            padding: 5px;
+        }
+
+        select {
+            padding: 5px;
+            border-radius: 10px;
+            border: solid rgb(7, 120, 220) 2px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        select:hover {
+            background-color: rgb(208, 233, 255);
+        }
+
+        .ocean_prox {
+            padding-top: 16px;
         }
     </style>
 </head>
@@ -111,17 +147,29 @@
                     <div class="range_inputs_inner">
                         <label for="longitude">Enter your longitude</label>
 
-                        <input type="range" name="longitude" id="" required>
+                        <div class="inner_range">
+                            <p>-150.00</p>
+                            <input type="range" name="longitude" id="" min="-150.00" max="-100.00" required>
+                            <p>-100.00</p>
+                        </div>
                         <br>
 
                         <label for="latitude">Enter your latitude</label>
-
-                        <input type="range" name="latitude" id="" required>
+                        <div class="inner_range">
+                            <p>30.00</p>
+                            <input type="range" name="latitude" id="" required min="30" max="50">
+                            <p>50.00</p>
+                        </div>
                         <br>
 
                         <label for="age">Enter your house age</label>
 
-                        <input type="range" name="age" id="" required>
+                        <div class="inner_range">
+                            <p class="age_limit_left">0</p>
+                            <input type="range" name="age" id="" required min="0" max="100">
+                            <p class="age_limit_right">100</p>
+                        </div>
+
 
                     </div>
 
@@ -129,35 +177,40 @@
                 <br>
 
                 <div class="number_inputs">
-                    <label for="population">Enter average population of the area</label>
-                    <br>
-                    <input type="number" name="" id="" required>
-                    <br>
+                    <div class="number_each">
+                        <label for="population">Enter average population of the area</label>
+                        <input type="number" name="" id="" required placeholder="Population..." min="0">
+                    </div>
+                    <br><br>
 
-                    <label for="households">Enter average number of households of the area</label>
-                    <br>
-                    <input type="number" name="" id="" required>
-                    <br>
+                    <div class="number_each">
+                        <label for="households">Enter average number of households of the area</label>
+                        <input type="number" name="" id="" required placeholder="Households..." min="0">
+                    </div>
+                    <br><br>
 
-                    <label for="income">Enter your income</label>
-                    <br>
-                    <input type="number" name="" id="" required>
+                    <div class="number_each">
+                        <label for="income">Enter your income</label>
+                        <input type="number" name="" id="" required placeholder="Income..." min="0">
+                    </div>
                 </div>
 
                 <br>
 
-                <label for="proximity">Enter proximity to ocean</label>
-                <br>
-                <select name="proximity" id="" required>
-                    <option value="less_than_1_hour">
-                        <1H OCEAN</option>
-                    <option value="inland">INLAND</option>
-                    <option value="near_ocean">NEAR OCEAN</option>
-                    <option value="near_bay">NEAR BAY</option>
-                    <option value="island">ISLAND</option>
-                </select>
 
-                <br><br>
+                <div class="ocean_prox">
+                    <label for="proximity">Enter proximity to ocean</label>
+                    <select name="proximity" id="" required>
+                        <option value="less_than_1_hour">
+                            <1H OCEAN</option>
+                        <option value="inland">INLAND</option>
+                        <option value="near_ocean">NEAR OCEAN</option>
+                        <option value="near_bay">NEAR BAY</option>
+                        <option value="island">ISLAND</option>
+                    </select>
+                </div>
+
+                <br>
                 <div class="submit_but">
                     <input type="submit" value="Predict">
                 </div>
