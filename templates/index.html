@@ -32,12 +32,45 @@
         }
 
         .main_form_div {
-            height: 50vh;
+            height: fit-content;
             width: 50vw;
             border: solid white 2px;
             border-radius: 10px;
             transform: translateY(-100px);
             font-size: 20px;
+        }
+
+        .main_form {
+            padding: 20px;
+        }
+
+        .submit_but {
+            width: 100%;
+            text-align: center;
+        }
+
+        .range_inputs {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .range_inputs input,
+        label {
+            padding: 5px;
+        }
+
+        .range_inputs_inner {
+            position: relative;
+
+            width: 50%;
+            text-align: left;
+        }
+
+        .range_inputs_inner input {
+            position: relative;
+            top: 10px;
+            width: 100%;
         }
     </style>
 </head>
@@ -50,41 +83,46 @@
     </div>
     <div class="mother">
         <div class="main_form_div">
-            <form action="" method="post">
+            <form action="" method="post" class="main_form">
 
-                <label for="longitude">Enter your longitude</label>
-                <br>
-                <input type="range" name="longitude" id="">
-                <br>
+                <div class="range_inputs">
+                    <div class="range_inputs_inner">
+                        <label for="longitude">Enter your longitude</label>
 
-                <label for="latitude">Enter your latitude</label>
-                <br>
-                <input type="range" name="latitude" id="">
-                <br>
+                        <input type="range" name="longitude" id="" required>
+                        <br>
 
-                <label for="age">Enter your house age</label>
-                <br>
-                <input type="range" name="age" id="">
-                <br>
+                        <label for="latitude">Enter your latitude</label>
+
+                        <input type="range" name="latitude" id="" required>
+                        <br>
+
+                        <label for="age">Enter your house age</label>
+
+                        <input type="range" name="age" id="" required>
+                    </div>
+
+                </div>
+
 
                 <label for="population">Enter average population of the area</label>
                 <br>
-                <input type="number" name="" id="">
+                <input type="number" name="" id="" required>
                 <br>
 
                 <label for="households">Enter average number of households of the area</label>
                 <br>
-                <input type="number" name="" id="">
+                <input type="number" name="" id="" required>
                 <br>
 
                 <label for="income">Enter your income</label>
                 <br>
-                <input type="number" name="" id="">
+                <input type="number" name="" id="" required>
                 <br>
 
                 <label for="proximity">Enter proximity to ocean</label>
                 <br>
-                <select name="proximity" id="">
+                <select name="proximity" id="" required>
                     <option value="less_than_1_hour">
                         <1H OCEAN</option>
                     <option value="inland">INLAND</option>
@@ -92,6 +130,11 @@
                     <option value="near_bay">NEAR BAY</option>
                     <option value="island">ISLAND</option>
                 </select>
+
+                <br>
+                <div class="submit_but">
+                    <input type="submit" value="Submit">
+                </div>
 
             </form>
 
