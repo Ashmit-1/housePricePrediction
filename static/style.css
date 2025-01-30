@@ -23,7 +23,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto;
     width: auto;
 }
 
@@ -38,6 +38,7 @@ body {
 
 .main_form {
     padding: 20px;
+    padding-bottom: 10px;
 }
 
 .submit_but {
@@ -120,4 +121,14 @@ select:hover {
 
 .ocean_prox {
     padding-top: 16px;
+}
+
+.pred_val {
+    width: 100%;
+    text-align: center;
+}
+
+.pred_val p {
+    font-size: 30px;
+
 }
