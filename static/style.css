@@ -1,0 +1,123 @@
+body {
+    background-color: black;
+    color: aliceblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.heading {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.heading h1 {
+    align-self: center;
+    font-size: 40px;
+    padding: 20px;
+    padding-bottom: 40px;
+    margin-bottom: 80px;
+}
+
+.mother {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: auto;
+}
+
+.main_form_div {
+    height: fit-content;
+    width: 50vw;
+    border: solid rgb(153, 206, 252) 2px;
+    border-radius: 10px;
+    transform: translateY(-100px);
+    font-size: 22px;
+}
+
+.main_form {
+    padding: 20px;
+}
+
+.submit_but {
+    width: 100%;
+    text-align: center;
+}
+
+.range_inputs {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.range_inputs input,
+label {
+    padding: 5px;
+}
+
+.range_inputs_inner {
+    position: relative;
+
+    width: 100%;
+    text-align: left;
+}
+
+.range_inputs_inner input {
+    position: relative;
+    width: 100%;
+}
+
+.number_inputs input {
+    padding: 5px;
+    border-radius: 10px;
+    border: solid rgb(7, 120, 220) 2px;
+}
+
+.bumber_inputs input:hover {
+    background-color: rgb(151, 206, 255);
+}
+
+.submit_but input {
+    width: 200px;
+    height: 40px;
+    background-color: rgb(7, 120, 220);
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    border: solid rgb(7, 120, 220) 2px;
+    transition: 0.5s ease;
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+}
+
+.submit_but input:hover {
+    background-color: blue;
+}
+
+.inner_range {
+    display: flex;
+}
+
+.inner_range p {
+    padding: 5px;
+}
+
+select {
+    padding: 5px;
+    border-radius: 10px;
+    border: solid rgb(7, 120, 220) 2px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+select:hover {
+    background-color: rgb(208, 233, 255);
+}
+
+.ocean_prox {
+    padding-top: 16px;
+}
