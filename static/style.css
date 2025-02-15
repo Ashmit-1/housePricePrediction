@@ -34,6 +34,7 @@ body {
     border-radius: 10px;
     transform: translateY(-100px);
     font-size: 22px;
+    box-shadow: 0px 10px 30px 10px rgb(117, 153, 224);
 }
 
 .main_form {
@@ -73,10 +74,11 @@ label {
     padding: 5px;
     border-radius: 10px;
     border: solid rgb(7, 120, 220) 2px;
+    font-size: 20px;
 }
 
-.bumber_inputs input:hover {
-    background-color: rgb(151, 206, 255);
+.number_inputs input:hover {
+    background-color: rgb(188, 223, 253);
 }
 
 .submit_but input {
@@ -131,4 +133,8 @@ select:hover {
 .pred_val p {
     font-size: 30px;
 
+}
+
+.number_inp {
+    padding: 20px;
 }
