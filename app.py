@@ -44,7 +44,7 @@ def index():
         proximity=request.form.get("proximity")
         income=float(request.form.get("income"))
         predictions = predict_price(latitude, longitude, age, population, households, income, proximity)
-        return render_template("index.html", predictions=predictions)
+        return render_template("index.html", longitude=longitude, latitude=latitude, age=age ,predictions=predictions)
 
 
 
